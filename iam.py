@@ -1,7 +1,10 @@
 import boto3
 from datetime import date, datetime, timedelta,timezone
+import sys
+access_id=sys.argv[0]
+access_key=sys.argv[1]
 
-client = boto3.client('iam',aws_access_key_id="AKIATKQXWGYZORI4MN5K", aws_secret_access_key="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")
+client = boto3.client('iam',aws_access_key_id=access_id, aws_secret_access_key=access_key)
 
 list_user = client.list_users()
 for user_name in list_user['Users']:
